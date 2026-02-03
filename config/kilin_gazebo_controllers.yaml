@@ -1,0 +1,264 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000
+    use_sim_time: true  
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    
+    # ALL
+    ALL_hip_position_controller:
+      type: position_controllers/JointGroupPositionController
+    ALL_hip_velocity_controller:
+      type: velocity_controllers/JointGroupVelocityController
+    ALL_hip_effort_controller:
+      type: effort_controllers/JointGroupEffortController
+
+    ALL_steering_position_controller:
+      type: position_controllers/JointGroupPositionController
+    ALL_steering_effort_controller:
+      type: effort_controllers/JointGroupEffortController
+    
+    # FL
+    FL_wheel_position_controller:
+      type: position_controllers/JointGroupPositionController
+    FL_wheel_velocity_controller:
+      type: effort_controllers/JointGroupVelocityController
+    FL_wheel_effort_controller:
+      type: effort_controllers/JointGroupEffortController
+
+    # FR
+    FR_wheel_position_controller:
+      type: position_controllers/JointGroupPositionController
+    FR_wheel_velocity_controller:
+      type: effort_controllers/JointGroupVelocityController
+    FR_wheel_effort_controller:
+      type: effort_controllers/JointGroupEffortController
+    
+    # RL
+    RL_wheel_position_controller:
+      type: position_controllers/JointGroupPositionController
+    RL_wheel_velocity_controller:
+      type: effort_controllers/JointGroupVelocityController
+    RL_wheel_effort_controller:
+      type: effort_controllers/JointGroupEffortController
+    
+    # RR
+    RR_wheel_position_controller:
+      type: position_controllers/JointGroupPositionController
+    RR_wheel_velocity_controller:
+      type: effort_controllers/JointGroupVelocityController
+    RR_wheel_effort_controller:
+      type: effort_controllers/JointGroupEffortController
+
+
+gz_ros2_control:
+  ros__parameters:
+    hold_joints: true
+    use_sim_time: true
+    position_proportional_gain: 0.5
+
+# -- ALL -------------------
+ALL_hip_position_controller:
+  ros__parameters:
+    joints:
+      - FL_hip
+      - FR_hip
+      - RL_hip
+      - RR_hip
+    command_interfaces: position
+    gains:
+      FL_hip:
+        p: 30000.0  
+        i: 0.0   
+        d: 600.0     
+
+      FR_hip:
+        p: 30000.0
+        i: 0.0
+        d: 600.0
+
+      RL_hip:
+        p: 30000.0  
+        i: 0.0   
+        d: 600.0
+
+      RR_hip:
+        p: 30000.0
+        i: 0.0
+        d: 600.0
+
+ALL_hip_velocity_controller:
+  ros__parameters:
+    joints: 
+      - FL_hip
+      - FR_hip
+      - RL_hip
+      - RR_hip
+    command_interfaces: velocity
+    # PID
+    allow_partial_joints_goal: false
+    gains:
+      FL_hip:
+        p: 1000.0  
+        i: 0.0   
+        d: 60.0     
+
+      FR_hip:
+        p: 1000.0
+        i: 0.0
+        d: 60.0
+
+      RL_hip:
+        p: 1000.0  
+        i: 0.0   
+        d: 60.0
+
+      RR_hip:
+        p: 1000.0
+        i: 0.0
+        d: 60.0
+
+ALL_hip_effort_controller:
+  ros__parameters:
+    joints: 
+      - FL_hip
+      - FR_hip
+      - RL_hip
+      - RR_hip
+    command_interfaces: effort
+    gains:
+      FL_hip:
+        p: 100.0  
+        i: 0.0   
+        d: 60.0     
+
+      FR_hip:
+        p: 100.0
+        i: 0.0
+        d: 60.0
+
+      RL_hip:
+        p: 100.0  
+        i: 0.0   
+        d: 60.0     
+
+      RR_hip:
+        p: 100.0
+        i: 0.0
+        d: 60.0
+
+ALL_steering_position_controller:
+  ros__parameters:
+    joints: 
+      - FL_steering
+      - FR_steering
+      - RL_steering
+      - RR_steering
+    command_interfaces: 
+      - position
+
+ALL_steering_effort_controller:
+  ros__parameters:
+    joints: 
+      - FL_steering
+      - FR_steering
+      - RL_steering
+      - RR_steering
+    command_interfaces: effort
+
+# -- FL --------------------
+FL_wheel_position_controller:
+  ros__parameters:
+    joints: 
+      - FL_wheel
+    command_interfaces: position
+  
+FL_wheel_velocity_controller:
+  ros__parameters:
+    joints: 
+      - FL_wheel
+    command_interfaces: velocity
+    gains:
+      FL_wheel:
+        p: 1000.0  
+        i: 0.0   
+        d: 60.0     
+
+FL_wheel_effort_controller:
+  ros__parameters:
+    joints: 
+      - FL_wheel
+    command_interfaces: effort
+
+# -- FR --------------------
+FR_wheel_position_controller:
+  ros__parameters:
+    joints: 
+      - FR_wheel
+    command_interfaces: position
+
+FR_wheel_velocity_controller:
+  ros__parameters:
+    joints: 
+      - FR_wheel
+    command_interfaces: velocity
+    gains:
+      FR_wheel:
+        p: 1000.0  
+        i: 0.0   
+        d: 60.0   
+
+FR_wheel_effort_controller:
+  ros__parameters:
+    joints: 
+      - FR_wheel
+    command_interfaces: effort
+
+# -- RL --------------------   
+RL_wheel_position_controller:
+  ros__parameters:
+    joints: 
+      - RL_wheel
+    command_interfaces: position
+
+RL_wheel_velocity_controller:
+  ros__parameters:
+    joints: 
+      - RL_wheel
+    command_interfaces: velocity
+    gains:
+        RL_wheel:
+          p: 1000.0  
+          i: 0.0   
+          d: 60.0
+
+RL_wheel_effort_controller:
+  ros__parameters:
+    joints: 
+      - RL_wheel
+    command_interfaces: effort
+
+# -- RR --------------------    
+RR_wheel_position_controller:
+  ros__parameters:
+    joints: 
+      - RR_wheel
+    command_interfaces: position
+
+RR_wheel_velocity_controller:
+  ros__parameters:
+    joints: 
+      - RR_wheel
+    command_interfaces: velocity
+    gains:
+          RR_wheel:
+            p: 1000.0  
+            i: 0.0   
+            d: 60.0
+
+RR_wheel_effort_controller:
+  ros__parameters:
+    joints: 
+      - RR_wheel
+    command_interfaces: effort

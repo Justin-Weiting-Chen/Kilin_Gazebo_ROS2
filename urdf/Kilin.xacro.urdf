@@ -1,0 +1,1171 @@
+<?xml version="1.0" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="kilin_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00910647205956294 0.000596668507971982 0.040306203387114"
+        rpy="0 0 0" />
+      <mass
+        value="23.5191011" />
+      <inertia
+        ixx="0.8329443"
+        ixy="-0.0038538"
+        ixz="-0.0021994"
+        iyy="1.3761848"
+        iyz="0.0244372"
+        izz="1.0429747" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/base_link.STL" 
+          />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/base_link.STL" 
+         />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="FL_hip_link">
+    <inertial>
+      <origin
+        xyz="-6.74552822329533E-05 0.0111881296460684 0.0979247894662302"
+        rpy="0 0 0" />
+      <mass
+        value="1.4161221" />
+      <inertia
+        ixx="0.0073442"
+        ixy="-0.0000065"
+        ixz="0.0000031"
+        iyy="0.0054142"
+        iyz="-0.0001966"
+        izz=" 0.0029905" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FL_hip_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FL_hip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_hip"
+    type="continuous">
+    <origin
+      xyz="0.23241 0.13204 -0.01549"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FL_hip_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="1000"
+      velocity="3" />
+    <dynamics damping="0.1" friction="0.8"/>
+  </joint>
+  <link
+    name="FL_steering_link">
+    <inertial>
+      <origin
+        xyz="-0.000422639967335381 -0.00239185387613131 0.0120471187097608"
+        rpy="0 0 0" />
+      <mass
+        value="0.1476068" />
+      <inertia
+        ixx="0.0000787"
+        ixy="0.0000001"
+        ixz="-0.0000001"
+        iyy="0.0000786"
+        iyz="-0.0000001"
+        izz="0.0000165" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FL_steering_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FL_steering_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_steering"
+    type="revolute">
+    <origin
+      xyz="0 0 0.118"
+      rpy="1.5708 0 0" />
+    <parent
+      link="FL_hip_link" />
+    <child
+      link="FL_steering_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="FL_suspension_link">
+    <inertial>
+      <origin
+        xyz="-7.29282545464116E-09 2.31456576127442E-10 -0.15218481265286"
+        rpy="0 0 0" />
+      <mass
+        value="0.2396418" />
+      <inertia
+        ixx="0.0063872"
+        ixy="0.0000000"
+        ixz="0.0000000"
+        iyy="0.0063026"
+        iyz="0.0000000"
+        izz="0.0001036" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FL_suspension_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FL_suspension_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_suspension"
+    type="prismatic">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="FL_steering_link" />
+    <child
+      link="FL_suspension_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.017"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FL_wheel_link">
+    <inertial>
+      <origin
+        xyz="2.1538326677728E-14 -3.71508379615193E-14 1.30451205393456E-15"
+        rpy="0 0 0" />
+      <mass
+        value="1.6066304" />
+      <inertia
+        ixx=" 0.0013527"
+        ixy="0.0000000"
+        ixz="0.0000000"
+        iyy="0.0013527"
+        iyz="0.0000000"
+        izz="0.0020388" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FL_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FL_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_wheel"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.25993"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="FL_suspension_link" />
+    <child
+      link="FL_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="50"
+      velocity="50" />
+  </joint>
+  <link
+    name="FR_hip_link">
+    <inertial>
+      <origin
+        xyz="0.000102318141521063 0.0129591443482352 -0.0973778797982"
+        rpy="0 0 0" />
+      <mass
+        value="1.4161221" />
+      <inertia
+        ixx="0.0073442"
+        ixy="-0.0000065"
+        ixz="0.0000031"
+        iyy="0.0054142"
+        iyz="-0.0001966"
+        izz=" 0.0029905" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FR_hip_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FR_hip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_hip"
+    type="continuous">
+    <origin
+      xyz="0.23241 -0.12796 -0.01549"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FR_hip_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="1000"
+      velocity="3" />
+    <dynamics damping="0.1" friction="0.8"/>
+  </joint>
+  <link
+    name="FR_steering_link">
+    <inertial>
+      <origin
+        xyz="0.000422640056466084 0.00239185398710823 0.0120471202634805"
+        rpy="0 0 0" />
+     <mass
+        value="0.1476068" />
+      <inertia
+        ixx="0.0000787"
+        ixy="0.0000001"
+        ixz="-0.0000001"
+        iyy="0.0000786"
+        iyz="-0.0000001"
+        izz="0.0000165" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FR_steering_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FR_steering_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_steering"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.118"
+      rpy="1.5708 0 0" />
+    <parent
+      link="FR_hip_link" />
+    <child
+      link="FR_steering_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="FR_suspension_link">
+    <inertial>
+      <origin
+        xyz="7.29284677092323E-09 -2.31456742660896E-10 -0.152184812652897"
+        rpy="0 0 0" />
+     <mass
+        value="0.2396418" />
+      <inertia
+        ixx="0.0063872"
+        ixy="0.0000000"
+        ixz="0.0000000"
+        iyy="0.0063026"
+        iyz="0.0000000"
+        izz="0.0001036" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FR_suspension_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FR_suspension_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_suspension"
+    type="prismatic">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="FR_steering_link" />
+    <child
+      link="FR_suspension_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.017"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FR_wheel_link">
+    <inertial>
+      <origin
+        xyz="-1.11022302462516E-16 -6.93889390390723E-17 -1.11022302462516E-16"
+        rpy="0 0 0" />
+      <mass
+        value="1.6066304" />
+      <inertia
+        ixx=" 0.0013527"
+        ixy="0.0000000"
+        ixz="0.0000000"
+        iyy="0.0013527"
+        iyz="0.0000000"
+        izz="0.0020388" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FR_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/FR_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_wheel"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.259932588652351"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="FR_suspension_link" />
+    <child
+      link="FR_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="50"
+      velocity="50" />
+  </joint>
+  <link
+    name="RL_hip_link">
+    <inertial>
+      <origin
+        xyz="-0.000102318141520771 0.0129591443482351 0.0973778797982018"
+        rpy="0 0 0" />
+     <mass
+        value="1.4161221" />
+      <inertia
+        ixx="0.0073442"
+        ixy="-0.0000065"
+        ixz="0.0000031"
+        iyy="0.0054142"
+        iyz="-0.0001966"
+        izz=" 0.0029905" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RL_hip_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RL_hip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_hip"
+    type="continuous">
+    <origin
+      xyz="-0.24759 0.13204 -0.01549"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RL_hip_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="1000"
+      velocity="3" />
+    <dynamics damping="0.1" friction="0.8"/>
+  </joint>
+  <link
+    name="RL_steering_link">
+    <inertial>
+      <origin
+        xyz="-0.0004226400430523 -0.00239185399986364 0.0120471209538485"
+        rpy="0 0 0" />
+      <mass
+        value="0.1476068" />
+      <inertia
+        ixx="0.0000787"
+        ixy="0.0000001"
+        ixz="-0.0000001"
+        iyy="0.0000786"
+        iyz="-0.0000001"
+        izz="0.0000165" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RL_steering_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RL_steering_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_steering"
+    type="revolute">
+    <origin
+      xyz="0 0 0.118"
+      rpy="1.5708 0 0" />
+    <parent
+      link="RL_hip_link" />
+    <child
+      link="RL_steering_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="RL_suspension_link">
+    <inertial>
+      <origin
+        xyz="-7.29284674316766E-09 2.31456659394169E-10 -0.152184812652897"
+        rpy="0 0 0" />
+      <mass
+        value="0.2396418" />
+      <inertia
+        ixx="0.0063872"
+        ixy="0.0000000"
+        ixz="0.0000000"
+        iyy="0.0063026"
+        iyz="0.0000000"
+        izz="0.0001036" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RL_suspension_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RL_suspension_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_suspension"
+    type="prismatic">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="RL_steering_link" />
+    <child
+      link="RL_suspension_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.017"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RL_wheel_link">
+    <inertial>
+      <origin
+        xyz="1.38777878078145E-17 0 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="1.6066304" />
+      <inertia
+        ixx=" 0.0013527"
+        ixy="0.0000000"
+        ixz="0.0000000"
+        iyy="0.0013527"
+        iyz="0.0000000"
+        izz="0.0020388" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RL_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RL_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_wheel"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.259932588652351"
+      rpy="-1.57079632679489 0 0" />
+    <parent
+      link="RL_suspension_link" />
+    <child
+      link="RL_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="50"
+      velocity="50" />
+  </joint>
+  <link
+    name="RR_hip_link">
+    <inertial>
+      <origin
+        xyz="0.000102318141499205 0.0129591443482003 -0.0973778797981998"
+        rpy="0 0 0" />
+ <mass
+        value="1.4161221" />
+      <inertia
+        ixx="0.0073442"
+        ixy="-0.0000065"
+        ixz="0.0000031"
+        iyy="0.0054142"
+        iyz="-0.0001966"
+        izz=" 0.0029905" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RR_hip_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RR_hip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_hip"
+    type="continuous">
+    <origin
+      xyz="-0.24759 -0.12796 -0.01549"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RR_hip_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="1000"
+      velocity="3" />
+    <dynamics damping="0.1" friction="0.8"/>
+  </joint>
+  <link
+    name="RR_steering_link">
+    <inertial>
+      <origin
+        xyz="0.00042264001304293 0.00239185394624247 0.0120471206952097"
+        rpy="0 0 0" />
+      <mass
+        value="0.1476068" />
+      <inertia
+        ixx="0.0000787"
+        ixy="0.0000001"
+        ixz="-0.0000001"
+        iyy="0.0000786"
+        iyz="-0.0000001"
+        izz="0.0000165" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RR_steering_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RR_steering_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_steering"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.118"
+      rpy="1.5708 0 0" />
+    <parent
+      link="RR_hip_link" />
+    <child
+      link="RR_steering_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="RR_suspension_link">
+    <inertial>
+      <origin
+        xyz="7.29282507994089E-09 -2.31456687149745E-10 -0.152184812652862"
+        rpy="0 0 0" />
+     <mass
+        value="0.2396418" />
+      <inertia
+        ixx="0.0063872"
+        ixy="0.0000000"
+        ixz="0.0000000"
+        iyy="0.0063026"
+        iyz="0.0000000"
+        izz="0.0001036" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RR_suspension_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RR_suspension_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_suspension"
+    type="prismatic">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="RR_steering_link" />
+    <child
+      link="RR_suspension_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.017"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RR_wheel_link">
+    <inertial>
+      <origin
+        xyz="-2.16632267679984E-14 -3.48332473976143E-14 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="1.6066304" />
+      <inertia
+        ixx=" 0.0013527"
+        ixy="0.0000000"
+        ixz="0.0000000"
+        iyy="0.0013527"
+        iyz="0.0000000"
+        izz="0.0020388" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RR_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://kilin_description/meshes/RR_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_wheel"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.259932588652351"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="RR_suspension_link" />
+    <child
+      link="RR_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="50"
+      velocity="50" />
+  </joint>
+
+  
+  <ros2_control name="IgnitionSystem" type="system">
+    <hardware>
+      <plugin>ign_ros2_control/IgnitionSystem</plugin>
+    </hardware>
+    <joint name="FL_hip">
+      <command_interface name="position"/>
+      	<param name="initial_value">0.0</param>
+      <command_interface name="velocity">
+        <param name="min">-6.28</param>
+        <param name="max">6.28</param>
+      </command_interface>
+      <command_interface name="effort">
+      </command_interface>
+
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    
+    <joint name="FL_steering">
+      <command_interface name="position">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+        <param name="initial_value">0.0</param>
+      </command_interface>
+      <command_interface name="effort">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="FL_wheel">
+      <command_interface name="position"/>
+      	<param name="initial_value">0.0</param>
+      <command_interface name="velocity">
+        <param name="min">-53</param>
+        <param name="max">53</param>
+        <param name="initial_value">0.0</param>
+      </command_interface>
+      <command_interface name="effort">
+      </command_interface>
+
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="FR_hip">
+      <command_interface name="position"/>
+      	<param name="initial_value">0.0</param>
+      <command_interface name="velocity">
+        <param name="min">-6.28</param>
+        <param name="max">6.28</param>
+        <param name="initial_value">0.0</param>
+      </command_interface>
+      <command_interface name="effort">
+        <param name="min">-100</param>
+        <param name="max">100</param>
+      </command_interface>
+
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    
+    <joint name="FR_steering">
+      <command_interface name="position">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+        <param name="initial_value">0.0</param>
+      </command_interface>
+      <command_interface name="effort">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="FR_wheel">
+      <command_interface name="position"/>
+      	<param name="initial_value">0.0</param>
+      <command_interface name="velocity">
+        <param name="min">-53</param>
+        <param name="max">53</param>
+        <param name="initial_value">0.0</param>
+      </command_interface>
+      <command_interface name="effort">
+      </command_interface>
+
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="RL_hip">
+      <command_interface name="position"/>
+      	<param name="initial_value">0.0</param>
+      <command_interface name="velocity">
+        <param name="min">-6.28</param>
+        <param name="max">6.28</param>
+        <param name="initial_value">0.0</param>
+      </command_interface>
+      <command_interface name="effort">
+        <param name="min">-100</param>
+        <param name="max">100</param>
+      </command_interface>
+
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    
+    <joint name="RL_steering">
+      <command_interface name="position">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+        <param name="initial_value">0.0</param>
+      </command_interface>
+      <command_interface name="effort">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="RL_wheel">
+      <command_interface name="position"/>
+      	<param name="initial_value">0.0</param>
+      <command_interface name="velocity">
+        <param name="min">-53</param>
+        <param name="max">53</param>
+        <param name="initial_value">0.0</param>
+      </command_interface>
+      <command_interface name="effort">
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="RR_hip">
+      <command_interface name="position"/>
+      	<param name="initial_value">0.0</param>
+      <command_interface name="velocity">
+        <param name="min">-6.28</param>
+        <param name="max">6.28</param>
+        <param name="initial_value">0.0</param>
+      </command_interface>
+      <command_interface name="effort">
+        <param name="min">-100</param>
+        <param name="max">100</param>
+      </command_interface>
+
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    
+    <joint name="RR_steering">
+      <command_interface name="position">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+        <param name="initial_value">0.0</param>
+      </command_interface>
+      <command_interface name="effort">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="RR_wheel">
+      <command_interface name="position"/>
+        <param name="initial_value">0.0</param>
+      <command_interface name="velocity">
+        <param name="min">-53</param>
+        <param name="max">53</param>
+        <param name="initial_value">0.0</param>
+      </command_interface>
+      <command_interface name="effort">
+      </command_interface>
+
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+      <parameters>$(find kilin_description)/config/kilin_gazebo_controllers.yaml</parameters>
+      <controller_manager_prefix_node_name>controller_manager</controller_manager_prefix_node_name>
+    </plugin>
+  </gazebo>
+  
+  
+</robot>

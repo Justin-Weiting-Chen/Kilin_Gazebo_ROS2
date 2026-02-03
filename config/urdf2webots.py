@@ -1,0 +1,2 @@
+from urdf2webots.importer import convertUrdfFile	#导入convertUrdfFile这个库
+convertUrdfFile(input = '/home/ubuntu-justin/Kilin_ws/src/kilin_description/urdf/Kilin.xacro.urdf',output='/home/ubuntu-justin/Kilin_ws/src/Kilin_sim/resource/Kilin.proto')
